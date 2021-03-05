@@ -26,7 +26,8 @@ class Ip():
                 continue
             local = addr_info_ipv4['local']
             prefixlen = addr_info_ipv4['prefixlen']
-            ipRange = local + '/' + str(prefixlen)
+            minPrefixlen = min(24, prefixlen)
+            ipRange = local + '/' + str(minPrefixlen)
             res.append(ipRange)
         return res
 
